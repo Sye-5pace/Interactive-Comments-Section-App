@@ -2,14 +2,18 @@ import { NgModule, isDevMode } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from './app.component';
+import { CommentListComponent } from './comment-list/comment-list.component'
+import { CreateCommentComponent } from './create-comment/create-comment.component'
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { StoreModule } from '@ngrx/store';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
+    CommentListComponent,
+    CreateCommentComponent,
     BrowserModule,
     ServiceWorkerModule.register('ngsw-worker.js', {
       enabled: !isDevMode(),
