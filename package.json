@@ -19,6 +19,8 @@
     "@angular/platform-browser-dynamic": "^17.3.8",
     "@angular/router": "^17.3.8",
     "@angular/service-worker": "^17.3.8",
+    "@ngrx/effects": "^17.2.0",
+    "@ngrx/schematics": "^17.2.0",
     "@ngrx/store": "^17.2.0",
     "ngrx-store-localstorage": "^17.0.0",
     "rxjs": "~7.8.0",

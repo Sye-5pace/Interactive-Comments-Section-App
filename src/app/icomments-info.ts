@@ -4,24 +4,23 @@ export interface IUserType {
 }
 
 interface ImgType {
-  png: string,
-  webp: string
+  [key: string]: string,
 }
 
 export interface ICommentType {
   id: number,
   content: string,
   createdAt: string,
-  score: number,
-  replies: IReplyType[]
+  score?: number ,
+  replies?: IReplyType[]
 }
 
-interface IReplyType extends ICommentType {
+export interface IReplyType extends ICommentType {
   replyingTo: string,
   user: IUserType
 }
 
 export interface ICommentInfo {
   currentUser: IUserType,
-  comments: ICommentType[]
+  comments: ICommentType[] | undefined
 }
