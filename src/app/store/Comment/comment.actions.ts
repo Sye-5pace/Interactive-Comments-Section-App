@@ -2,9 +2,6 @@ import { createActionGroup,emptyProps, props } from '@ngrx/store';
 import { ICommentInfo,IReplyType,ICommentType, IUserType } from '../../icomments-info'
 
 
-
-
-
 export const CommentActions = createActionGroup({
   source: 'Comment',
   events: {

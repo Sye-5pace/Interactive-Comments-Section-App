@@ -20,6 +20,12 @@ export const initialState: IState = {
   error: null
 };
 
+const storageConfig: LocalStorageConfig = {
+  keys: [{ comments: ['commentInfo']}, {user : ['currentUser']}],
+  storage: localStorage,
+  rehydrate: true 
+}
+
 
 
 export const reducer = createReducer(
@@ -44,7 +50,7 @@ export const reducer = createReducer(
     ...state,
     comments: state.commentInfo?.comments
       ? [...state.commentInfo.comments, action.comment]
-      : [action.comment], 
+      : [action.comment],
     currentUser: action.currentUser,
     loading: false,
     error: null,
@@ -56,7 +62,7 @@ export const reducer = createReducer(
         if (comment.id === commentId) {
           return {
             ...comment,
-            replies: [...comment.replies, reply] 
+            replies: [...comment.replies, reply]
           };
         }
         return comment;
@@ -137,13 +143,9 @@ export const reducer = createReducer(
 );
 
 
-
-
-
-
-
-
-
+export const commentReducer = (state: IState, action: Action) => {
+  return localStorageSync(storageConfig)(reducer)(state, action)
+}
 // use switch case statement approach for reducers handlers
 // for addReply,DeleteReply,EditReply
 // and addComments with normal approach(Action Creator)
